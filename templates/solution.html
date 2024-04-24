@@ -1,0 +1,20 @@
+{% include "header.html" %}
+<div class="code-form">
+    <br>
+    <h1>Solución al modelo de Programación lineal</h1>
+    <br>
+    <h2>Variables de Decisión</h2>
+    <br>
+    {% for var in solution.vars %}
+        <p>{{ var }}</p>
+    {% endfor %}
+    <br>
+    <h2>Solución Óptima</h2>
+    <br>
+    <p>Z = {{ solution.optimal_value }}</p>
+    <br>
+         <a href="{{ url_for('calculadora') }}"> <button class= "button">Regresar</button>
+    </a>
+    </div>
+{% include "footer.html" %}
+

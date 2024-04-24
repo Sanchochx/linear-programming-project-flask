@@ -1,0 +1,32 @@
+{% include "header.html" %}
+<div class="code-form">
+    <h1>Programación Lineal</h1>
+    <div class="form-container">
+        <form action="/solve" method="post">
+            <label for="optimization_type">Desea maximizar o minimizar? (maximizar/minimizar):</label>
+            <input type="text" id="optimization_type" name="optimization_type" required><br><br>
+
+            <h2>Función Objetivo</h2>
+            {% for i in range(1, 4) %}
+                <label for="coef_{{ i }}">Coeficiente (X{{ i }}):</label>
+                <input type="number" id="coef_{{ i }}" name="coef_{{ i }}" step="any" required><br><br>
+            {% endfor %}
+
+            <h2>Restricciones (X1, X2, X3)</h2>
+            {% for i in range(3) %}
+                {% for j in range(3) %}
+                    <input type="number" id="constraint_{{ i }}_{{ j }}" name="constraint_{{ i }}_{{ j }}" step="any" required>
+                {% endfor %}
+                <select name="relation_{{ i }}">
+                    <option value="<="><=</option>
+                    <option value=">=">>=</option>
+                    <option value="=">=</option>
+                </select>
+                <input type="number" id="constant_{{ i }}" name="constant_{{ i }}" step="any" required><br><br>
+            {% endfor %}
+
+            <button class= "button" type="submit">Resolver</button>
+        </form>
+    </div>
+    </div>
+{% include "footer.html" %}
