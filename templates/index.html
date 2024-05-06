@@ -1,33 +1,29 @@
 {% include "header.html" %}
+<div class="main-content">
 <div class="code-form">
+<div class="form-container">
     <br>
-    <h1>Programación Lineal</h1>
-    <div class="form-container">
-        <form action="/solve" method="post">
-            <label for="optimization_type">¿Desea maximizar o minimizar? (maximizar/minimizar):</label>
-            <input type="text" id="optimization_type" name="optimization_type" required><br><br>
-
-            <h2>Función Objetivo</h2>
-            {% for i in range(1, 4) %}
-                <label for="coef_{{ i }}">Coeficiente (X{{ i }}):</label>
-                <input type="number" id="coef_{{ i }}" name="coef_{{ i }}" step="any" required><br><br>
-            {% endfor %}
-
-            <h2>Restricciones (X1, X2, X3)</h2>
-            {% for i in range(3) %}
-                {% for j in range(3) %}
-                    <input type="number" id="constraint_{{ i }}_{{ j }}" name="constraint_{{ i }}_{{ j }}" step="any" required>
-                {% endfor %}
-                <select name="relation_{{ i }}">
-                    <option value="<="><=</option>
-                    <option value=">=">>=</option>
-                    <option value="=">=</option>
-                </select>
-                <input type="number" id="constant_{{ i }}" name="constant_{{ i }}" step="any" required><br><br>
-            {% endfor %}
-
-            <button class= "button" type="submit">Resolver</button>
-        </form>
+<h2>Ingrese el número de restricciones y variables:</h2>
+    <form action="/index" method="post">
+        <label for="num_variables">Número de Variables:</label>
+        <input type="number" name="num_variables" id="num_variables" required>
+        <br>
+        <br>
+        <label for="num_constraints">Número de Restricciones:</label>
+        <input type="number" name="num_constraints" id="num_constraints" required>
+        <br>
+        <br>
+        <label for="optimization_type">Tipo de Optimización:</label>
+        <select name="optimization_type" id="optimization_type">
+            <option></option>
+            <option value="Maximizar">Maximizar</option>
+            <option value="Minimizar">Minimizar</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit" class="button">Continuar</button>
+    </form>
+    </div>
     </div>
     </div>
 {% include "footer.html" %}

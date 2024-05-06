@@ -1,0 +1,49 @@
+{% include "header.html" %}
+<div class="main-content">
+<div class="code-form">
+<div class="form-container">
+    <br>
+ <h2>Calculadora de Programación Lineal</h2>
+    <br>
+    <h3>Tipo de Optimización: {{ optimization_type }}</h3>
+    <br>
+
+    <form action="/calculator" method="post">
+        <input type="hidden" name="num_variables" value="{{ num_variables }}">
+        <input type="hidden" name="num_constraints" value="{{ num_constraints }}">
+        <input type="hidden" name="optimization_type" value="{{ optimization_type }}">
+
+        <h3>Coeficientes de la Función Objetivo:</h3>
+        <br>
+        {% for i in range(1, num_variables + 1) %}
+            <label for="coef_{{ i }}">Coeficiente x{{ i }}:</label>
+            <input type="number" name="coef_{{ i }}" id="coef_{{ i }}" step="any" required>
+            <br>
+            <br>
+        {% endfor %}
+
+        <br>
+        <h3>Coeficientes de las Restricciones:</h3>
+        <br>
+        {% for i in range(1, num_constraints + 1) %}
+            <strong><p>Restricción {{ i }}:</p></strong>
+            {% for j in range(1, num_variables + 1) %}
+                <label for="constraint_{{ i }}_{{ j }}">Coeficiente x{{ j }}:</label>
+                <input type="number" name="constraint_{{ i }}_{{ j }}" id="constraint_{{ i }}_{{ j }}" step="any" required>
+            {% endfor %}
+            <select name="relation_{{ i }}" id="relation_{{ i }}">
+                <option value="<=">≤</option>
+                <option value=">=">≥</option>
+                <option value="=">=</option>
+            </select>
+            <label for="constant_{{ i }}">Constante:</label>
+            <input type="number" name="constant_{{ i }}" id="constant_{{ i }}" step="any" required>
+            <br>
+        <br>
+        {% endfor %}
+        <button type="submit" class="button">Resolver</button>
+    </form>
+</div>
+</div>
+</div>
+{% include "footer.html" %}

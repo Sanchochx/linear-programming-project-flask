@@ -1,20 +1,24 @@
 {% include "header.html" %}
+<div class="main-content">
 <div class="code-form">
+<div class="form-container">
     <br>
-    <h1>Solución al modelo de Programación lineal</h1>
+    <h2>Solución del ejercicio</h2>
     <br>
-    <h2>Variables de Decisión</h2>
+    <p>Z, El valor óptimo de la función objetivo es: <strong>{{ solution.optimal_value }}</strong> </p>
+    <p>Valores de las variables de decisión:</p>
+    <strong>
+        {% for var in solution.vars %}
+            {% for key, value in var.items() %}
+                {{ key }}: {{ value }}
     <br>
-    {% for var in solution.vars %}
-        <p>{{ var }}</p>
-    {% endfor %}
     <br>
-    <h2>Solución Óptima</h2>
-    <br>
-    <p>Z = {{ solution.optimal_value }}</p>
-    <br>
-         <a href="{{ url_for('calculadora') }}"> <button class= "button">Regresar</button>
-    </a>
-    </div>
+            {% endfor %}
+        {% endfor %}
+</strong>
+    <a href="{{ url_for('index') }}"><button type="submit" class="button">Regresar</button></a>
+</div>
+</div>
+</div>
 {% include "footer.html" %}
 

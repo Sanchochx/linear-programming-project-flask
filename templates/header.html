@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Programación Lineal</title>
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
 <div class="bar">
   <a href="{{ url_for('home') }}">Inicio</a>
-  <a href="{{ url_for('calculadora') }}">Calculadora</a>
+  <a href="{{ url_for('index') }}">Calculadora</a>
   <a href="{{ url_for('about') }}">Acerca De</a>
-  <img src="static/images/usta_logo.jpg" alt="logo-usta" class="logo-usta">
+    <img src="static/images/usta_logo.jpg" alt="logo-usta" class="logo-usta">
 </div>

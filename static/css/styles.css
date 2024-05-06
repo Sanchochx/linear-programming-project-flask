@@ -35,15 +35,15 @@ body {
 
 .logo-usta{
   width: 135px;
-  margin-top: 333px;
+  margin-top: 330px;
 }
 
 .main-content {
   background-color: white;
   padding: 20px;
-  width: 80%;
+  width: 79%;
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 30px;
   margin-right: 90px;
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 .code-form {
-  margin-left: 200px;
+  margin-left: 100px;
 }
 
 h1 {
