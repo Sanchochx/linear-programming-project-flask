@@ -8,7 +8,7 @@ body {
 }
 
 .bar {
-  background-color: black;
+  background-color: #172e7c;
   overflow: hidden;
   border-right: 2px solid #e9ecef;
   height: 100vh;
@@ -31,6 +31,11 @@ body {
 .bar a:hover {
   background-color: #00008B;
   color: white;
+}
+
+.logo-usta{
+  width: 135px;
+  margin-top: 333px;
 }
 
 .main-content {
